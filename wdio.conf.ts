@@ -53,6 +53,7 @@ export const config: WebdriverIO.Config = {
     //
     capabilities: [{
         browserName: 'chrome',
+        //browserVersion : 'beta'
         //'wdio:enforceWebDriverClassic' : true
     }],
 
