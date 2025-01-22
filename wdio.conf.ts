@@ -53,7 +53,7 @@ export const config: WebdriverIO.Config = {
     //
     capabilities: [{
         browserName: 'chrome',
-        //browserVersion : 'beta'
+        port: 65103
         //'wdio:enforceWebDriverClassic' : true
     }],
 
