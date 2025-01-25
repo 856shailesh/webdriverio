@@ -7,6 +7,9 @@ export const config: WebdriverIO.Config = {
     runner: 'local',
     tsConfigPath: './tsconfig.json',
     
+    //port: 4444,
+    //protocol: "http",
+    //hostname: "localhost",
     //
     // ==================
     // Specify Test Files
@@ -28,6 +31,7 @@ export const config: WebdriverIO.Config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+        './test/specs/test2.e2e.ts'
     ],
     //
     // ============
@@ -45,7 +49,7 @@ export const config: WebdriverIO.Config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -53,7 +57,7 @@ export const config: WebdriverIO.Config = {
     //
     capabilities: [{
         browserName: 'chrome',
-        port: 65103
+        //port: 65103
         //'wdio:enforceWebDriverClassic' : true
     }],
 
@@ -155,8 +159,9 @@ export const config: WebdriverIO.Config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        console.log('SK , on Prepare Started');
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -166,8 +171,9 @@ export const config: WebdriverIO.Config = {
      * @param  {object} args     object that will be merged with the main configuration once worker is initialized
      * @param  {object} execArgv list of string arguments passed to the worker process
      */
-    // onWorkerStart: function (cid, caps, specs, args, execArgv) {
-    // },
+    onWorkerStart: function (cid, caps, specs, args, execArgv) {
+        console.log('SK , on Worker Started');
+     },
     /**
      * Gets executed just after a worker process has exited.
      * @param  {string} cid      capability id (e.g 0-0)
@@ -212,8 +218,9 @@ export const config: WebdriverIO.Config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
+    beforeTest: function (test, context) {
+        console.log("Shailesh Before Test")
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
