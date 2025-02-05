@@ -6,10 +6,11 @@ export const config: WebdriverIO.Config = {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     tsConfigPath: './tsconfig.json',
+    baseUrl : "https://selectorshub.com/",
     
-    //port: 4444,
-    //protocol: "http",
-    //hostname: "localhost",
+    port: 4444,
+    protocol: "http",
+    hostname: "localhost",
     //
     // ==================
     // Specify Test Files
@@ -31,7 +32,9 @@ export const config: WebdriverIO.Config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
-        './test/specs/test2.e2e.ts'
+        './test/specs/test.e2e.ts',
+        './test/specs/test2.e2e.ts',
+        './test/specs/test3.e2e.ts',
     ],
     //
     // ============
@@ -57,7 +60,6 @@ export const config: WebdriverIO.Config = {
     //
     capabilities: [{
         browserName: 'chrome',
-        //port: 65103
         //'wdio:enforceWebDriverClassic' : true
     }],
 
