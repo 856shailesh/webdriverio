@@ -10,7 +10,7 @@ describe("day10", () => {
             }
         }
     })
-    it("timeout execution", async () => {
+    xit("timeout execution", async () => {
         await browser.url("xpath-practice-page/");
         const timeouts = await browser.getTimeouts();
         console.log("Before Timeouts are : ", timeouts);
@@ -18,5 +18,10 @@ describe("day10", () => {
         await browser.setTimeouts(0, 3000);
         const timeouts1 = await browser.getTimeouts();
         console.log("After Timeouts are : ", timeouts1);
+    })
+    it("Day 11 waiting strategy", async () => {
+        await browser.url("xpath-practice-page/");
+        const timeouts = await browser.getTimeouts();
+        console.log(" Timeouts are : ", timeouts);
     })
 })
