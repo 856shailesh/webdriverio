@@ -101,8 +101,51 @@ describe("day10", () => {
         }, { timeout: 5000, timeoutMsg: "Didn't selected color" });
         await $("input[name = 'qty']").setValue(3);
         await $("button[type = 'button'] span").click();
-        //View Cart Popup
         await $("a.add-cart-popup-button").click();
-        console.log("End of Script");
+        /* Checkout Page
+        const rows = await $$("//table[@class='items-table listing']/tbody/tr/td");
+        const rowCount = await rows.length;
+        console.log("Total number of rows", rowCount);
+        
+        const rowData: string[] = [];
+        const productDetail = await $("//table[@class='items-table listing']/tbody/tr[1]/td[1]//div[@class='cart-tem-info']/a").getText();
+        const productPrice = await $("//table[@class='items-table listing']/tbody/tr[1]//td[2]//span[@class='sale-price']").getText();
+        const productQty = await $("//table[@class='items-table listing']/tbody/tr[1]//td[3]//input[@type='text']").getAttribute('value');
+        const productTotalPrice = await $("//table[@class='items-table listing']/tbody/tr[1]/td[4]//span").getText();
+
+        rowData.push(productDetail);
+        rowData.push(productPrice);
+        rowData.push(productQty);
+        rowData.push(productTotalPrice);
+
+        rowData.forEach((val, index) => {
+            console.log(`Cell ${index + 1} text is : ${val}`);
+        }) */
+        const rows = await $$("//table[@class='items-table listing']/tbody/tr");
+        const rowCount = await rows.length;
+        console.log("Total number of rows", rowCount);
+
+        const rowsData: string[][] = []; // Intitialize 2D array
+        //read all rows data at once
+        for (let i = 0; i < rowCount; i++){
+            const rowData: string[] = []; //For every product
+            const productDetail = await rows[i].$("//td[1]//div[@class='cart-tem-info']/a").getText();
+            const productPrice = await rows[i].$("//td[2]//span[@class='sale-price']").getText();
+            const productQty = await rows[i].$("//td[3]//input[@type='text']").getAttribute('value');
+            const productTotalPrice = await rows[i].$("//td[4]//span").getText();
+
+            rowData.push(productDetail);
+            rowData.push(productPrice);
+            rowData.push(productQty);
+            rowData.push(productTotalPrice);
+            rowsData.push(rowData);
+        }
+        //Print The tabel
+        for (const rowData of rowsData) {
+            rowData.forEach((val, index) => {
+                console.log(`Cell ${index + 1} text is ${val}`);
+            })
+            console.log(" ------ ***** ------- ****** --------")
+        }
     })
 })
