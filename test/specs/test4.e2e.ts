@@ -24,7 +24,7 @@ describe("day10", () => {
         const timeouts = await browser.getTimeouts();
         console.log(" Timeouts are : ", timeouts);
     })
-    it("Day 12 implement waits", async () => {
+    xit("Day 12 implement waits", async () => {
         await browser.url("/account/login");
         await browser.maximizeWindow();
         await $("input[name=email]").setValue("856shaileshk@gmail.com")
@@ -45,6 +45,64 @@ describe("day10", () => {
         await $("//a[text()='Green']").click();
         await $("input[name = 'qty']").setValue(3);
         await $("button[type = 'button'] span").click();
+        console.log("End of Script");
+    })
+    xit("Day 13 web tables", async () => {
+        await browser.url("/account/login");
+        await browser.maximizeWindow();
+        await $("input[name=email]").setValue("856shaileshk@gmail.com")
+        await $("input[name=password]").setValue("123456")
+        await $("button[type=submit]").click();
+        //Home 
+        await $("//a/span[text()='Nike react phantom run flyknit 2']").click();
+        //Product
+        const productName = await $("h1.product-single-name").getText();
+        console.log("Product name is ", productName)
+        await $("//a[text()='X']").click();
+        await browser.waitUntil(async () => {
+            let classvalue = await $("//a[text()='X']/parent::li").getAttribute("class");
+            if (classvalue === 'selected') return true;
+            else return false;
+        }, { timeout: 5000, timeoutMsg: "Didn't attained selected value" });
+        await $("//a[text()='Green']").click();
+        await browser.waitUntil(async () => {
+            let classvalue = await $("//a[text()='Green']/parent::li").getAttribute("class");
+            if (classvalue === 'selected') return true;
+            else return false;
+        }, { timeout: 5000, timeoutMsg: "Didn't selected color" });
+        await $("input[name = 'qty']").setValue(3);
+        await $("button[type = 'button'] span").click();
+        //View Cart Popup
+        await $("a.add-cart-popup-button").click();
+        console.log("End of Script");
+    })
+    it("Day 14 tables row iframe", async () => {
+        await browser.url("/account/login");
+        await browser.maximizeWindow();
+        await $("input[name=email]").setValue("856shaileshk@gmail.com")
+        await $("input[name=password]").setValue("123456")
+        await $("button[type=submit]").click();
+        //Home 
+        await $("//a/span[text()='Nike react phantom run flyknit 2']").click();
+        //Product
+        const productName = await $("h1.product-single-name").getText();
+        console.log("Product name is ", productName)
+        await $("//a[text()='X']").click();
+        await browser.waitUntil(async () => {
+            let classvalue = await $("//a[text()='X']/parent::li").getAttribute("class");
+            if (classvalue === 'selected') return true;
+            else return false;
+        }, { timeout: 5000, timeoutMsg: "Didn't attained selected value" });
+        await $("//a[text()='Green']").click();
+        await browser.waitUntil(async () => {
+            let classvalue = await $("//a[text()='Green']/parent::li").getAttribute("class");
+            if (classvalue === 'selected') return true;
+            else return false;
+        }, { timeout: 5000, timeoutMsg: "Didn't selected color" });
+        await $("input[name = 'qty']").setValue(3);
+        await $("button[type = 'button'] span").click();
+        //View Cart Popup
+        await $("a.add-cart-popup-button").click();
         console.log("End of Script");
     })
 })
