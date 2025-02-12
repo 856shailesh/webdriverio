@@ -76,7 +76,7 @@ describe("day10", () => {
         await $("a.add-cart-popup-button").click();
         console.log("End of Script");
     })
-    it("Day 14 tables row iframe", async () => {
+    xit("Day 14 tables row iframe", async () => {
         await browser.url("/account/login");
         await browser.maximizeWindow();
         await $("input[name=email]").setValue("856shaileshk@gmail.com")
@@ -147,5 +147,33 @@ describe("day10", () => {
             })
             console.log(" ------ ***** ------- ****** --------")
         }
+    })
+    xit("Day 15 , iframes" , async () => {
+        await browser.url("https://selectorshub.com/iframe-scenario/");
+        await browser.maximizeWindow();
+        //Switch to frame , using frame ID
+        await browser.switchFrame($("//iframe[@id='pact1']"));
+        await $("//input[@id='inp_val']").setValue("shailesh Kumar")
+        //Switch to iFrmae using URL
+        await browser.switchFrame($("//iframe[@src='https://selectorshub.com/input-box/']"));
+        await $("//input[@id='jex']").setValue("lol");
+        //Switch to 3rd IFrame using more values
+        await browser.switchFrame($("//iframe[@loading='lazy' and @height='65px']"));
+        await $("//input[@placeholder='Destiny']").setValue("Double Lol");
+
+        //Switch to original Frame and Get Some value
+        await browser.switchFrame(null); // This will go to initial frame
+        let header = await $("//a[text()='SELECTORSHUB']").getText();
+        console.log("End of script with header " , header);
+    })
+    it("Day 15 , Shadow DOMS" , async () => {
+        await browser.url("https://selectorshub.com/shadow-dom-in-iframe/");
+        await browser.maximizeWindow();
+
+        await browser.switchFrame($("//iframe[@id='pact']"));
+        await $("//div[@id='snacktime']").waitForDisplayed({ timeout: 20000 });
+
+        await browser.$("div#snacktime").shadow$("//input[@id='tea']").setValue("Yes I might be");
+        
     })
 }) 
