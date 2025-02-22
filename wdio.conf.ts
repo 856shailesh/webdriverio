@@ -27,7 +27,7 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/testexpect.e2e.ts',
+        './test/specs/alluretest.e2e.ts',
         //'./test/specs/test2.e2e.ts',
     ],
     // Patterns to exclude.
@@ -136,7 +136,7 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [['allure', {outputDir: 'allure-results'}]],
 
     // Options to be passed to Jasmine.
     jasmineOpts: {
@@ -248,8 +248,13 @@ export const config: WebdriverIO.Config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+         console.log("After test started")
+         
+         if (!passed) {
+             await browser.takeScreenshot();
+         }
+    },
 
 
     /**
