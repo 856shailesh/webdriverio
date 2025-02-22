@@ -166,14 +166,68 @@ describe("day10", () => {
         let header = await $("//a[text()='SELECTORSHUB']").getText();
         console.log("End of script with header " , header);
     })
-    it("Day 15 , Shadow DOMS" , async () => {
+    xit("Day 15 , Shadow DOMS" , async () => {
         await browser.url("https://selectorshub.com/shadow-dom-in-iframe/");
         await browser.maximizeWindow();
 
         await browser.switchFrame($("//iframe[@id='pact']"));
         await $("//div[@id='snacktime']").waitForDisplayed({ timeout: 20000 });
-
-        await browser.$("div#snacktime").shadow$("//input[@id='tea']").setValue("Yes I might be");
+        await $("//div[@id='snacktime']").waitForExist();
+        const shadowHost1 = await browser.$("div#snacktime");
+        await shadowHost1.moveTo();
+        await shadowHost1.shadow$("//input[@id='tea']").setValue("Yes I might be");
         
+    })
+    xit("Day 16 , Inject JS" , async () => {
+        await browser.url("/account/login");
+        await browser.maximizeWindow();
+
+        const selectorInput = "input[name='email']";
+        const inputValue = "Shailesh";
+
+        await browser.execute(
+            (selectorInput, inputValue) => {
+            const ele = document.querySelector(selectorInput) as HTMLInputElement;
+            ele.value = inputValue;
+            //const ele2 = document.querySelector(selectorInput);
+        }, selectorInput, inputValue);
+        console.log("End of Script");
+    })
+    xit("Day 17 , Move" , async () => {
+        await browser.url("https://demo.evershop.io/account/login");
+        await browser.maximizeWindow();
+
+        await $("input[name='email']").click({ button: 'right' });
+        await $("input[name='email']").doubleClick();
+        //await browser.debug();
+    })
+    xit("Day 17 , Relative , Parent element" , async () => {
+        await browser.url("https://www.globalsqa.com/demo-site/draganddrop/");
+        await browser.maximizeWindow();
+        await browser.switchFrame($("//iframe[@class='demo-frame lazyloaded']"));
+        const element = await $("(//ul[@id='gallery']/li/img)[1]");
+        const target = await $("//div[@id='trash']")
+        element.dragAndDrop(target);
+        console.log("End of script");
+        //await $("input[name='email']").doubleClick();
+        //await browser.debug();
+    })
+    xit("Day 17 , Drag and Drop" , async () => {
+        await browser.url("https://www.globalsqa.com/demo-site/draganddrop/");
+        await browser.maximizeWindow();
+        await browser.switchFrame($("//iframe[@class='demo-frame lazyloaded']"));
+        const element = await $("(//ul[@id='gallery']/li/img)[1]");
+        const nextEle = element.nextElement();
+        const eleAtt = await nextEle.getAttribute("a");
+        console.log("next element" ,nextEle , "att" , eleAtt);
+        //await $("input[name='email']").doubleClick();
+        //await browser.debug();
+    })
+    xit("Day 18 , Alert" , async () => {
+        await browser.url("https://demo.automationtesting.in/Alerts.html");
+        await browser.maximizeWindow();
+        await $("//button[@onclick='alertbox()']").click();
+        const alertOpen = await browser.isAlertOpen();
+        await console.log("Alert 1 open ? ",alertOpen)
     })
 }) 

@@ -6,7 +6,7 @@ export const config: WebdriverIO.Config = {
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
     tsConfigPath: './tsconfig.json',
-    baseUrl : "https://demo.evershop.io",
+    baseUrl : "https://demo.evershop.io/",
     
     port: 4444,
     protocol: "http",
@@ -27,14 +27,15 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/testexpect.e2e.ts',
+        //'./test/specs/test2.e2e.ts',
     ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
         './test/specs/test.e2e.ts',
-        './test/specs/test2.e2e.ts',
         './test/specs/test3.e2e.ts',
+        './test/specs/test4.e2e.ts',
     ],
     //
     // ============
@@ -71,6 +72,7 @@ export const config: WebdriverIO.Config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
+    outputDir: 'logs',
     //
     // Set specific log levels per logger
     // loggers:
@@ -98,7 +100,7 @@ export const config: WebdriverIO.Config = {
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 5000,
-    //waitforInterval:0, //Polling
+    //waitforInterval:500, //Polling
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
