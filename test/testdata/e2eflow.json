@@ -1,0 +1,17 @@
+{
+    "TC1":{
+        "login": {
+            "userName": "856shaileshk@gmail.com", 
+            "password": "123456"
+        },
+        "product": {
+            "productName": "Nike react phantom run flyknit 2"
+        }               
+    },
+    
+    "TC2":{
+        "userName": "856shaileshk@gmail.com", 
+        "password": "123456",
+        "productName": "Nike react phantom run flyknit 2"
+    }
+}

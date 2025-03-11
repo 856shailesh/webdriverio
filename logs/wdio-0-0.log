@@ -1,50 +1,87 @@
-2025-02-22T04:03:04.003Z INFO @wdio/local-runner: Run worker command: run
-2025-02-22T04:03:04.232Z INFO webdriver: Initiate new session using the WebDriver protocol
-2025-02-22T04:03:04.233Z INFO @wdio/utils: Connecting to existing driver at http://localhost:4444/
-2025-02-22T04:03:04.245Z INFO webdriver: [POST] http://localhost:4444/session
-2025-02-22T04:03:04.245Z INFO webdriver: DATA {
+2025-03-10T03:49:07.020Z INFO @wdio/local-runner: Run worker command: run
+2025-03-10T03:49:07.331Z INFO webdriver: Initiate new session using the WebDriver protocol
+2025-03-10T03:49:07.332Z INFO @wdio/utils: Connecting to existing driver at http://localhost:4444/
+2025-03-10T03:49:07.352Z INFO webdriver: [POST] http://localhost:4444/session
+2025-03-10T03:49:07.352Z INFO webdriver: DATA {
   capabilities: {
     alwaysMatch: {
-      browserName: 'chrome',
+      browserName: 'firefox',
       webSocketUrl: true,
       unhandledPromptBehavior: 'ignore'
     },
     firstMatch: [ {} ]
   }
 }
-2025-02-22T04:03:05.235Z INFO webdriver: Register BiDi handler for session with id 879b00c9ebf43082ddf0ca11bba6a56d
-2025-02-22T04:03:05.236Z INFO webdriver: Connect to webSocketUrl ws://192.168.1.14:4444/session/879b00c9ebf43082ddf0ca11bba6a56d/se/bidi
-2025-02-22T04:03:05.257Z INFO webdriver: Connected session to Bidi protocol
-2025-02-22T04:03:05.258Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.contextCreated"]}
-2025-02-22T04:03:05.260Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["log.entryAdded","browsingContext.navigationStarted"]}
-2025-02-22T04:03:05.261Z INFO webdriver: BIDI COMMAND script.addPreloadScript { functionDeclaration: <PreloadScript[1319 bytes]>, contexts: undefined }
-2025-02-22T04:03:05.262Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.navigationStarted","network.responseCompleted","network.beforeRequestSent","network.fetchError"]}
-2025-02-22T04:03:05.262Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.userPromptOpened"]}
-2025-02-22T04:03:05.264Z INFO webdriver: COMMAND getWindowHandle()
-2025-02-22T04:03:05.265Z INFO webdriver: Connected to WebDriver Bidi interface at ws://192.168.1.14:4444/session/879b00c9ebf43082ddf0ca11bba6a56d/se/bidi
-2025-02-22T04:03:05.266Z INFO webdriver: BIDI COMMAND browsingContext.getTree {}
-2025-02-22T04:03:05.266Z INFO webdriver: [GET] http://localhost:4444/session/879b00c9ebf43082ddf0ca11bba6a56d/window
-2025-02-22T04:03:05.282Z INFO webdriver: RESULT 5CB6258C8D28EF0FD0445F3C74DC5EE8
-2025-02-22T04:03:05.298Z INFO webdriverio:PolyfillManager: Adding polyfill script to context with id 5CB6258C8D28EF0FD0445F3C74DC5EE8
-2025-02-22T04:03:05.299Z INFO webdriver: BIDI COMMAND script.callFunction {"functionDeclaration":"<Function[301 bytes]>","target":{"children":null,"clientWindow":"","context":"5CB6258C8D28EF0FD0445F3C74DC5EE8","originalOpener":null,"parent":null,"url":"about:blank","userContext":"default"},"awaitPromise":false}
-2025-02-22T04:03:05.303Z INFO webdriver: BIDI COMMAND script.addPreloadScript { functionDeclaration: <PreloadScript[301 bytes]>, contexts: ["5CB6258C8D28EF0FD0445F3C74DC5EE8"] }
-2025-02-22T04:03:05.307Z INFO webdriver: BIDI RESULT {"id":1,"result":{},"type":"success"}
-2025-02-22T04:03:05.310Z INFO webdriver: BIDI RESULT {"id":2,"result":{},"type":"success"}
-2025-02-22T04:03:05.310Z INFO webdriver: BIDI RESULT {"id":3,"result":{"script":"3427aed8-1827-49e6-ba54-efed52f60689"},"type":"success"}
-2025-02-22T04:03:05.310Z INFO webdriver: BIDI RESULT {"id":4,"result":{},"type":"success"}
-2025-02-22T04:03:05.312Z INFO webdriver: BIDI RESULT {"id":5,"result":{},"type":"success"}
-2025-02-22T04:03:05.314Z INFO webdriver: BIDI RESULT {"id":6,"result":{"contexts":[{"children":[],"clientWindow":"","context":"5CB6258C8D28EF0FD0445F3C74DC5EE8","originalOpener":null,"parent":null,"url":"about:blank","userContext":"default"}]},"type":"success"}
-2025-02-22T04:03:05.317Z INFO webdriver: BIDI RESULT {"id":7,"result":{"exceptionDetails":{"columnNumber":17,"exception":{"type":"error"},"lineNumber":3,"stackTrace":{"callFrames":[{"columnNumber":17,"functionName":"callFunction","lineNumber":3,"url":""},{"columnNumber":13,"functionName":"","lineNumber":5,"url":""}]},"text":"TypeError: Cannot read properties of undefined (reading 'apply')"},"realm":"-191362430524659051.-574911350299868347","type":"exception"},"type":"success"}
-2025-02-22T04:03:05.326Z INFO webdriver: BIDI COMMAND browsingContext.navigate {"context":"5CB6258C8D28EF0FD0445F3C74DC5EE8","url":"https://www.google.com/","wait":"complete"}
-2025-02-22T04:03:05.328Z INFO webdriver: BIDI RESULT {"id":8,"result":{"script":"914e8c23-7772-404b-a5c4-948803a17960"},"type":"success"}
-2025-02-22T04:03:05.823Z INFO webdriverio:PolyfillManager: Adding polyfill script to context with id 9A53896FB669D4EDC15D9C455EF7E92F
-2025-02-22T04:03:05.825Z INFO webdriver: BIDI COMMAND script.callFunction {"functionDeclaration":"<Function[301 bytes]>","target":{"children":null,"clientWindow":"","context":"9A53896FB669D4EDC15D9C455EF7E92F","originalOpener":null,"parent":"5CB6258C8D28EF0FD0445F3C74DC5EE8","url":"about:blank","userContext":"default"},"awaitPromise":false}
-2025-02-22T04:03:06.016Z INFO webdriver: BIDI RESULT {"id":10,"result":{"exceptionDetails":{"columnNumber":17,"exception":{"type":"error"},"lineNumber":3,"stackTrace":{"callFrames":[{"columnNumber":17,"functionName":"callFunction","lineNumber":3,"url":""},{"columnNumber":13,"functionName":"","lineNumber":5,"url":""}]},"text":"TypeError: Cannot read properties of undefined (reading 'apply')"},"realm":"-5753106691772003481.-2148770243336354491","type":"exception"},"type":"success"}
-2025-02-22T04:03:06.116Z INFO webdriver: BIDI RESULT {"id":9,"result":{"navigation":"28b1f0cd-8b2d-4845-ba24-938aeb9865b4","url":"https://www.google.com/"},"type":"success"}
-2025-02-22T04:03:06.142Z INFO webdriver: COMMAND takeScreenshot()
-2025-02-22T04:03:06.143Z INFO webdriver: [GET] http://localhost:4444/session/879b00c9ebf43082ddf0ca11bba6a56d/screenshot
-2025-02-22T04:03:06.368Z INFO webdriver: RESULT iVBORw0KGgoAAAANSUhEUgAACWAAAAT+CAIAAADFlI3KAAABK2lDQ1BTa2lhA...
-2025-02-22T04:03:06.379Z INFO webdriver: COMMAND deleteSession()
-2025-02-22T04:03:06.380Z INFO webdriver: [DELETE] http://localhost:4444/session/879b00c9ebf43082ddf0ca11bba6a56d
-2025-02-22T04:03:06.489Z INFO webdriver: RESULT null
-2025-02-22T04:03:06.490Z INFO webdriver: Close Bidi connection to ws://192.168.1.14:4444/session/879b00c9ebf43082ddf0ca11bba6a56d/se/bidi
+2025-03-10T03:49:09.541Z INFO webdriver: Register BiDi handler for session with id e6cbf8fa-79b0-497b-9b15-99df05391224
+2025-03-10T03:49:09.543Z INFO webdriver: Connect to webSocketUrl ws://192.168.1.2:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/se/bidi
+2025-03-10T03:49:09.598Z INFO webdriver: Connected session to Bidi protocol
+2025-03-10T03:49:09.599Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.contextCreated"]}
+2025-03-10T03:49:09.604Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["log.entryAdded","browsingContext.navigationStarted"]}
+2025-03-10T03:49:09.607Z INFO webdriver: BIDI COMMAND script.addPreloadScript { functionDeclaration: <PreloadScript[1319 bytes]>, contexts: undefined }
+2025-03-10T03:49:09.608Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.navigationStarted","network.responseCompleted","network.beforeRequestSent","network.fetchError"]}
+2025-03-10T03:49:09.609Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.userPromptOpened"]}
+2025-03-10T03:49:09.619Z INFO webdriver: COMMAND getWindowHandle()
+2025-03-10T03:49:09.623Z INFO webdriver: Connected to WebDriver Bidi interface at ws://192.168.1.2:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/se/bidi
+2025-03-10T03:49:09.625Z INFO webdriver: BIDI COMMAND browsingContext.getTree {}
+2025-03-10T03:49:09.628Z INFO webdriver: [GET] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/window
+2025-03-10T03:49:09.719Z INFO webdriver: RESULT 8eeafede-721b-4c86-ab5c-69b03021c3cc
+2025-03-10T03:49:09.726Z INFO webdriver: BIDI RESULT {"type":"success","id":6,"result":{"contexts":[{"children":[],"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc","originalOpener":null,"url":"about:blank","userContext":"default","parent":null}]}}
+2025-03-10T03:49:09.727Z INFO webdriverio:PolyfillManager: Adding polyfill script to context with id 8eeafede-721b-4c86-ab5c-69b03021c3cc
+2025-03-10T03:49:09.729Z INFO webdriver: BIDI COMMAND script.callFunction {"functionDeclaration":"<Function[301 bytes]>","target":{"children":[],"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc","originalOpener":null,"url":"about:blank","userContext":"default","parent":null},"awaitPromise":false}
+2025-03-10T03:49:09.731Z INFO webdriver: BIDI COMMAND script.addPreloadScript { functionDeclaration: <PreloadScript[301 bytes]>, contexts: ["8eeafede-721b-4c86-ab5c-69b03021c3cc"] }
+2025-03-10T03:49:09.735Z INFO webdriver: BIDI RESULT {"type":"success","id":1,"result":{"subscription":"437804b6-aaac-460f-9268-f62742c7a3ae"}}
+2025-03-10T03:49:09.739Z INFO webdriver: BIDI RESULT {"type":"success","id":2,"result":{"subscription":"7e90d5c9-85dc-42d6-ac5c-df292661791e"}}
+2025-03-10T03:49:09.742Z INFO webdriver: BIDI RESULT {"type":"success","id":3,"result":{"script":"b25f7af8-a965-485c-b55a-ee074f736f4d"}}
+2025-03-10T03:49:09.743Z INFO webdriver: BIDI RESULT {"type":"success","id":4,"result":{"subscription":"90ba180f-bf41-4dd4-8126-50fbcc60dce3"}}
+2025-03-10T03:49:09.743Z INFO webdriver: BIDI RESULT {"type":"success","id":5,"result":{"subscription":"9865df41-2ece-4c92-ba0d-2f2fce12e94d"}}
+2025-03-10T03:49:09.745Z INFO webdriver: BIDI RESULT {"type":"success","id":7,"result":{"realm":"4fcd229b-9f50-47aa-99ce-b9fe464974e5","type":"exception","exceptionDetails":{"columnNumber":300,"exception":{"type":"error"},"lineNumber":0,"stackTrace":{"callFrames":[{"columnNumber":300,"functionName":"","lineNumber":0,"url":"about:blank"}]},"text":"TypeError: (intermediate value)() is undefined"}}}
+2025-03-10T03:49:09.746Z INFO webdriver: BIDI RESULT {"type":"success","id":8,"result":{"script":"4cfa7abb-60c5-4ee1-9d7d-1c58d6d64005"}}
+2025-03-10T03:49:09.766Z INFO webdriver: BIDI COMMAND browsingContext.navigate {"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc","url":"https://demo.evershop.io/account/login","wait":"complete"}
+2025-03-10T03:49:12.118Z INFO webdriver: BIDI RESULT {"type":"success","id":9,"result":{"navigation":"5cdb415a-15d9-46db-9a87-d2c56e9c5933","url":"https://demo.evershop.io/account/login"}}
+2025-03-10T03:49:12.121Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"xpath","value":"//input[@name='email']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:12.130Z INFO webdriver: BIDI RESULT {"type":"success","id":10,"result":{"nodes":[{"type":"node","sharedId":"338b5f08-21cc-4fb1-95d1-8f6841248c02","value":{"nodeType":1,"localName":"input","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":0,"attributes":{"type":"text","name":"email","placeholder":"Email","value":""},"shadowRoot":null}}]}}
+2025-03-10T03:49:12.146Z INFO webdriver: COMMAND elementClear("338b5f08-21cc-4fb1-95d1-8f6841248c02")
+2025-03-10T03:49:12.147Z INFO webdriver: [POST] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/338b5f08-21cc-4fb1-95d1-8f6841248c02/clear
+2025-03-10T03:49:12.161Z INFO webdriver: RESULT null
+2025-03-10T03:49:12.162Z INFO webdriver: COMMAND elementSendKeys("338b5f08-21cc-4fb1-95d1-8f6841248c02", "856shaileshk@gmail.com")
+2025-03-10T03:49:12.163Z INFO webdriver: [POST] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/338b5f08-21cc-4fb1-95d1-8f6841248c02/value
+2025-03-10T03:49:12.163Z INFO webdriver: DATA { text: '856shaileshk@gmail.com' }
+2025-03-10T03:49:12.213Z INFO webdriver: RESULT null
+2025-03-10T03:49:12.215Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"css","value":"input[name='password']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:12.219Z INFO webdriver: BIDI RESULT {"type":"success","id":11,"result":{"nodes":[{"type":"node","sharedId":"1d9907a3-044a-413e-89c1-9312de889c49","value":{"nodeType":1,"localName":"input","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":0,"attributes":{"type":"password","name":"password","placeholder":"Password","value":""},"shadowRoot":null}}]}}
+2025-03-10T03:49:12.225Z INFO webdriver: COMMAND elementClear("1d9907a3-044a-413e-89c1-9312de889c49")
+2025-03-10T03:49:12.226Z INFO webdriver: [POST] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/1d9907a3-044a-413e-89c1-9312de889c49/clear
+2025-03-10T03:49:12.242Z INFO webdriver: RESULT null
+2025-03-10T03:49:12.244Z INFO webdriver: COMMAND elementSendKeys("1d9907a3-044a-413e-89c1-9312de889c49", "123456")
+2025-03-10T03:49:12.245Z INFO webdriver: [POST] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/1d9907a3-044a-413e-89c1-9312de889c49/value
+2025-03-10T03:49:12.245Z INFO webdriver: DATA { text: '123456' }
+2025-03-10T03:49:12.268Z INFO webdriver: RESULT null
+2025-03-10T03:49:12.271Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"css","value":"button[type='submit']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:12.287Z INFO webdriver: BIDI RESULT {"type":"success","id":12,"result":{"nodes":[{"type":"node","sharedId":"88e051b0-189d-47da-9ca3-2c1fbef48d77","value":{"nodeType":1,"localName":"button","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":1,"attributes":{"type":"submit","class":"button primary"},"shadowRoot":null}}]}}
+2025-03-10T03:49:12.306Z INFO webdriver: COMMAND elementClick("88e051b0-189d-47da-9ca3-2c1fbef48d77")
+2025-03-10T03:49:12.309Z INFO webdriver: [POST] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/88e051b0-189d-47da-9ca3-2c1fbef48d77/click
+2025-03-10T03:49:12.548Z INFO webdriver: RESULT null
+2025-03-10T03:49:12.550Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"xpath","value":"//a/span[text()='Nike react phantom run flyknit 2']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:12.558Z INFO webdriver: BIDI RESULT {"type":"success","id":13,"result":{"nodes":[]}}
+2025-03-10T03:49:12.565Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"xpath","value":"//a/span[text()='Nike react phantom run flyknit 2']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:12.572Z INFO webdriver: BIDI RESULT {"type":"success","id":14,"result":{"nodes":[]}}
+2025-03-10T03:49:13.067Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"xpath","value":"//a/span[text()='Nike react phantom run flyknit 2']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:13.074Z INFO webdriver: BIDI RESULT {"type":"success","id":15,"result":{"nodes":[]}}
+2025-03-10T03:49:13.566Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"xpath","value":"//a/span[text()='Nike react phantom run flyknit 2']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:13.578Z INFO webdriver: BIDI RESULT {"type":"success","id":16,"result":{"nodes":[{"type":"node","sharedId":"3b26cb38-8c51-458e-91df-054dc0bf772a","value":{"nodeType":1,"localName":"span","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":1,"attributes":{},"shadowRoot":null}}]}}
+2025-03-10T03:49:13.584Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"xpath","value":"//a/span[text()='Nike react phantom run flyknit 2']"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:13.587Z INFO webdriver: BIDI RESULT {"type":"success","id":17,"result":{"nodes":[{"type":"node","sharedId":"3b26cb38-8c51-458e-91df-054dc0bf772a","value":{"nodeType":1,"localName":"span","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":1,"attributes":{},"shadowRoot":null}}]}}
+2025-03-10T03:49:13.591Z INFO webdriver: COMMAND elementClick("3b26cb38-8c51-458e-91df-054dc0bf772a")
+2025-03-10T03:49:13.591Z INFO webdriver: [POST] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/3b26cb38-8c51-458e-91df-054dc0bf772a/click
+2025-03-10T03:49:15.769Z INFO webdriver: RESULT null
+2025-03-10T03:49:15.776Z INFO webdriver: BIDI COMMAND browsingContext.navigate {"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc","url":"https://demo.evershop.io/account","wait":"complete"}
+2025-03-10T03:49:16.498Z INFO webdriver: BIDI RESULT {"type":"success","id":18,"result":{"navigation":"ceeb4532-3246-448d-b6e1-11b11a2806a3","url":"https://demo.evershop.io/account"}}
+2025-03-10T03:49:16.506Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"css","value":".account-details-email div"},"context":"8eeafede-721b-4c86-ab5c-69b03021c3cc"}
+2025-03-10T03:49:16.511Z INFO webdriver: BIDI RESULT {"type":"success","id":19,"result":{"nodes":[{"type":"node","sharedId":"45e57a3c-7f16-440a-98ba-8d3b30764093","value":{"nodeType":1,"localName":"div","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":1,"attributes":{},"shadowRoot":null}},{"type":"node","sharedId":"345e55a0-aff6-421d-a452-b237fa300c9c","value":{"nodeType":1,"localName":"div","namespaceURI":"http://www.w3.org/1999/xhtml","childNodeCount":1,"attributes":{},"shadowRoot":null}}]}}
+2025-03-10T03:49:16.518Z INFO webdriver: COMMAND getElementText("345e55a0-aff6-421d-a452-b237fa300c9c")
+2025-03-10T03:49:16.521Z INFO webdriver: [GET] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/element/345e55a0-aff6-421d-a452-b237fa300c9c/text
+2025-03-10T03:49:16.543Z INFO webdriver: RESULT 856shaileshk@gmail.com
+2025-03-10T03:49:16.553Z INFO webdriver: COMMAND deleteSession()
+2025-03-10T03:49:16.554Z INFO webdriver: [DELETE] http://localhost:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224
+2025-03-10T03:49:17.195Z INFO webdriver: RESULT null
+2025-03-10T03:49:17.196Z INFO webdriver: Close Bidi connection to ws://192.168.1.2:4444/session/e6cbf8fa-79b0-497b-9b15-99df05391224/se/bidi

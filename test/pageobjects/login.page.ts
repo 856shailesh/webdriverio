@@ -1,41 +1,30 @@
-import { $ } from '@wdio/globals'
-import Page from './page.js';
+import { LoginInputDao } from '../daoLayer/inputDao/loginInputDao';
+import HomePage from './home.page';
+import { Page } from './page'
+import { ChainablePromiseElement } from 'webdriverio';
+export default class LoginPage extends Page {
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    public get inputUsername () {
-        return $('#username');
+    public getEmailField() : ChainablePromiseElement{
+        return  $("//input[@name='email']");
+    }
+    public getPassword() : ChainablePromiseElement{
+        return  $("input[name='password']")
     }
 
-    public get inputPassword () {
-        return $('#password');
+    public getSubmitButton() : ChainablePromiseElement {
+        return  $("button[type='submit']");
+    }
+    
+        
+    public async fillCredentials(loginInputDao: LoginInputDao): Promise<HomePage> {
+        await this.getEmailField().setValue(loginInputDao.getUserName());
+        await this.getPassword().setValue(loginInputDao.getPassword());
+        await this.getSubmitButton().click();
+        return new HomePage; //for method chaining
     }
 
-    public get btnSubmit () {
-        return $('button[type="submit"]');
-    }
-
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    public open () {
-        return super.open('login');
+    public async openURL(): Promise<this> {
+        await super.open("account/login");
+        return this;
     }
 }
-
-export default new LoginPage();

@@ -1,0 +1,40 @@
+//API : set of rules that allows different software applications to communitcate with each other.
+webservice : use internet to inteact , all WS are API , use http , mostly rest soap
+api : doens always need , all api are not wS , use http , ftp , can be os level
+
+private api : not exposed to outside world
+public api : google maps api , can be used by public
+
+api gateway
+caching , layer between your server and DB
+advantage : faster response , reduce DB load
+disadvantage : cost expensive , stale data bcs of TTL
+
+REST API : Representational State Transfer 
+archtecture sytle for desigining network application
+
+CRUD operation : Create (POST) , read get , update ,put/patch , delete delete
+safe : get , optiosn , head , doens't modify data 
+cacheable : response reuse , get head
+idempotent : GET , head , put , delete , optiosn
+
+head : to return only headers
+options : what all options are allowed on that endpoitn
+
+har file , capture
+vault : save password
+
+json : application/json
+text : text/plain
+xml :application/xmlh
+html : text/html
+javascript : application/javascirpt 
+pdf : application/pdf
+
+statefull : maintain session data , like selenium
+send sid , with every request , (maintan session data)
+heavy
+mroe reliabel
+
+
+stateless: like playwriht , WDIO , once connection is established , request , respnse

@@ -1,0 +1,45 @@
+API : is a sewt of rules that allow  to interact with other software applications. 
+e.g REST API , Soap , Graph QL , Webservices
+
+ApI vs Webservices
+api : doensn't requrie internet , can be between OS level application , TCP level , return varios format like XML , json 
+websericxe : requere http protocol , mostly between internet application. , http level , mostly json or xml
+all webservices are api but vice versa not true.
+
+Private and public API
+private : not exposed to public (require authentication). like MMT and indigo , there is a contract, paid
+public : open for all (open access), like googleMaps api , no fees
+
+api gateway : manage , secure , optimize , logging. way to redirect api request , load balance , one public IP for all server .
+
+caching : layer between web server and DB . Improve response time and take off load form DB
+issue : stale data ,  TTL
+
+REST API : type of webservice , that follows REST principle to allow system to communicate over http 
+1. Stateless : later 
+2. proper response , 
+3. use http methods 
+
+Create post , read get , upade put , delete delete
+safe : get , , options
+cacheable : get , head
+idempotent : get , delete ,  , put , delete
+
+statefull and stateless
+stateless : give session information with every call , heavy , like SID , 
+e.g Http , REST API
+statefull : establish connection once , light , 
+like : BIDI protocol , playwright and WDIO , FTP TCP  , SSH
+
+//URI : Uniform resource Identifier , is like phone number (unieque) but can't find address with inteact
+url : uniform resource locator : everything , phone number + address
+urn : uniform resoruce name , only 
+
+http : protocol
+www : subdomain
+google : domain
+www.google.com : host
+:8080 : port
+/resource : path parameter
+?param1=value1 : query parameter
+#section1 : anchor identifier

@@ -1,9 +1,14 @@
+import { addAttachment } from "@wdio/allure-reporter";
+import * as os from "os";
+import * as fs from "fs";
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
+    
     runner: 'local',
     tsConfigPath: './tsconfig.json',
     baseUrl : "https://demo.evershop.io/",
@@ -27,13 +32,13 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/alluretest.e2e.ts',
+        './test/specs/e2e.ts',
         //'./test/specs/test2.e2e.ts',
     ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
-        './test/specs/test.e2e.ts',
+        //'./test/specs/test.e2e.ts',
         './test/specs/test3.e2e.ts',
         './test/specs/test4.e2e.ts',
     ],
@@ -60,7 +65,7 @@ export const config: WebdriverIO.Config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome',
+        browserName: 'firefox',
         //'wdio:enforceWebDriverClassic' : true
     }],
 
@@ -136,7 +141,17 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: 'allure-results'}]],
+    
+    reporters: [['allure', {outputDir: 'allure-results',reportedEnvironmentVars: {
+          os_platform: os.platform(),
+          os_release: os.release(),
+          os_version: os.version(),
+          node_version: process.version,
+    },
+        disableWebdriverScreenshotsReporting: true,
+        disableWebdriverStepsReporting: true,
+        addConsoleLogs: true
+    }]],
 
     // Options to be passed to Jasmine.
     jasmineOpts: {
