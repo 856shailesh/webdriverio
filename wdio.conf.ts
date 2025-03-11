@@ -1,12 +1,17 @@
+import { addAttachment } from "@wdio/allure-reporter";
+import * as os from "os";
+import * as fs from "fs";
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
+    
     runner: 'local',
     tsConfigPath: './tsconfig.json',
-    baseUrl : "https://demo.evershop.io",
+    baseUrl : "https://demo.evershop.io/",
     
     port: 4444,
     protocol: "http",
@@ -27,14 +32,15 @@ export const config: WebdriverIO.Config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/e2e.ts',
+        //'./test/specs/test2.e2e.ts',
     ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
-        './test/specs/test.e2e.ts',
-        './test/specs/test2.e2e.ts',
+        //'./test/specs/test.e2e.ts',
         './test/specs/test3.e2e.ts',
+        './test/specs/test4.e2e.ts',
     ],
     //
     // ============
@@ -59,7 +65,7 @@ export const config: WebdriverIO.Config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome',
+        browserName: 'firefox',
         //'wdio:enforceWebDriverClassic' : true
     }],
 
@@ -71,6 +77,7 @@ export const config: WebdriverIO.Config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
+    outputDir: 'logs',
     //
     // Set specific log levels per logger
     // loggers:
@@ -98,7 +105,7 @@ export const config: WebdriverIO.Config = {
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 5000,
-    //waitforInterval:0, //Polling
+    //waitforInterval:500, //Polling
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -134,7 +141,17 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    
+    reporters: [['allure', {outputDir: 'allure-results',reportedEnvironmentVars: {
+          os_platform: os.platform(),
+          os_release: os.release(),
+          os_version: os.version(),
+          node_version: process.version,
+    },
+        disableWebdriverScreenshotsReporting: true,
+        disableWebdriverStepsReporting: true,
+        addConsoleLogs: true
+    }]],
 
     // Options to be passed to Jasmine.
     jasmineOpts: {
@@ -246,8 +263,13 @@ export const config: WebdriverIO.Config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+         console.log("After test started")
+         
+         if (!passed) {
+             await browser.takeScreenshot();
+         }
+    },
 
 
     /**
