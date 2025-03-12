@@ -1,15 +1,18 @@
 import { ChainablePromiseElement } from 'webdriverio';
 import { Page } from './page'
+import { HomeInputDao } from '../daoLayer/inputDao/homeInputDao';
+import ProductPage from './product.page';
 
 
 export default class HomePage extends Page {
-    public getProductLink(productName: string): ChainablePromiseElement {
+    //private so that no one can directly call it , 
+    //also this is internal to next class
+    private getProductLink(productName: string): ChainablePromiseElement {
         return  $(`//a/span[text()='${productName}']`);
     }
-
-    public async clickProductLink(productName: string): Promise<this> {
-        await this.getProductLink(productName).click();      
-        return this;
+    public async clickProductLink(homeInputDao: HomeInputDao): Promise<ProductPage> {
+        await this.getProductLink(homeInputDao.getProductName()).click();      
+        return new ProductPage();
     }
 
     public async openURL(): Promise<this> {

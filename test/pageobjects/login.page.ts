@@ -4,17 +4,16 @@ import { Page } from './page'
 import { ChainablePromiseElement } from 'webdriverio';
 export default class LoginPage extends Page {
 
-    public getEmailField() : ChainablePromiseElement{
+    //private bcs internally called
+    private getEmailField() : ChainablePromiseElement{
         return  $("//input[@name='email']");
     }
-    public getPassword() : ChainablePromiseElement{
+    private getPassword() : ChainablePromiseElement{
         return  $("input[name='password']")
     }
-
-    public getSubmitButton() : ChainablePromiseElement {
+    private getSubmitButton() : ChainablePromiseElement {
         return  $("button[type='submit']");
     }
-    
         
     public async fillCredentials(loginInputDao: LoginInputDao): Promise<HomePage> {
         await this.getEmailField().setValue(loginInputDao.getUserName());

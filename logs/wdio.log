@@ -1,6 +1,6 @@
-2025-03-10T03:49:05.525Z INFO @wdio/cli:launcher: Run onPrepare hook
-2025-03-10T03:49:05.539Z INFO @wdio/cli:launcher: Run onWorkerStart hook
-2025-03-10T03:49:05.540Z INFO @wdio/local-runner: Start worker 0-0 with arg: run ./wdio.conf.ts
-2025-03-10T03:49:17.343Z INFO @wdio/cli:launcher: Run onWorkerEnd hook
-2025-03-10T03:49:17.353Z INFO @wdio/local-runner: Shutting down spawned worker
-2025-03-10T03:49:17.606Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully
+2025-03-11T03:57:50.125Z INFO @wdio/cli:launcher: Run onPrepare hook
+2025-03-11T03:57:50.148Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2025-03-11T03:57:50.149Z INFO @wdio/local-runner: Start worker 0-0 with arg: run ./wdio.conf.ts
+2025-03-11T03:58:09.489Z INFO @wdio/cli:launcher: Run onWorkerEnd hook
+2025-03-11T03:58:09.491Z INFO @wdio/local-runner: Shutting down spawned worker
+2025-03-11T03:58:09.743Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully

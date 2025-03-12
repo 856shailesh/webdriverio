@@ -4,8 +4,13 @@
             "userName": "856shaileshk@gmail.com", 
             "password": "123456"
         },
-        "product": {
+        "home": {
             "productName": "Nike react phantom run flyknit 2"
+        },
+        "product":{
+            "size": "X",
+            "color": "Green",
+            "quantity": "4"
         }               
     },
     

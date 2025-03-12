@@ -1,4 +1,4 @@
-import { LoginDataLayer } from "../../dataLayer/LoginDataLayer"
+import { LoginDataLayer } from "../../dataLayer/loginDataLayer"
 
 export class LoginInputDao {
 
