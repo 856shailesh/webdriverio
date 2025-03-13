@@ -1,5 +1,6 @@
 
 import { ProductInputDao } from '../daoLayer/inputDao/productInputDao';
+import CartPage from './cart.page';
 import {Page} from './page'
 import {ChainablePromiseElement} from 'webdriverio';
 
@@ -52,7 +53,7 @@ export default class ProductPage extends Page {
           })
     }
 
-    public async fillProductDetails(productInputDao: ProductInputDao): Promise<this> {
+    public async fillProductDetails(productInputDao: ProductInputDao): Promise<CartPage> {
 
         await this.getProductSize(productInputDao.getSize()).click();      
         await this.waitForSizeTobeSelected(productInputDao.getSize());  
@@ -65,6 +66,6 @@ export default class ProductPage extends Page {
         await this.getAddToCartButton().click();
         await this.getAddToCartPopUpButton().click();
 
-        return this;
+        return new CartPage();
     }    
 }

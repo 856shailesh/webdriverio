@@ -14,33 +14,25 @@ export default class CartPage extends Page {
     private getCartRows(): ChainablePromiseArray {
         return  browser.$$("//table[contains(@class,'items-table')]//tbody/tr");
     }
-
     private getProductDetail(): string {
         return "//td[1]//div[@class='cart-tem-info']/a";
     }
-
     private getProductPrice(): string {
         return  "//td[2]//span[@class='sale-price']";
     }
-
     private getProductQuantity(): string {
         return  "//td[3]//input[@type='text']"
     }
-
     private getProductTotalPrice(): string {
         return  "//td[4]//span";
     }
-
     private getCheckoutButton(): ChainablePromiseElement {
         return  $(`//a[contains(@href,'checkout')]`);
     }
-    
     public async clickCheckoutButton(): Promise<CheckoutPage> {
         await this.getCheckoutButton().click();      
         return new CheckoutPage();
     }
-    
-
 
     public async readCartData(): Promise<string[][]> {
         const rows = this.getCartRows()

@@ -11,6 +11,15 @@
             "size": "X",
             "color": "Green",
             "quantity": "4"
+        },
+        "checkout":{
+            "fullName": "Shailesh Kumar",
+            "telephone": "123456789",
+            "address": "Ghaziabad",
+            "city": "Noida",
+            "country": "United States",
+            "province": "Alabama",
+            "postcode": "110032"
         }               
     },
     
