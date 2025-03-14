@@ -2,7 +2,7 @@ import { ChainablePromiseElement } from 'webdriverio';
 import { Page } from './page'
 import { HomeInputDao } from '../daoLayer/inputDao/homeInputDao';
 import ProductPage from './product.page';
-
+import { step } from "@wdio/allure-reporter";
 
 export default class HomePage extends Page {
     //private so that no one can directly call it , 
@@ -11,7 +11,9 @@ export default class HomePage extends Page {
         return  $(`//a/span[text()='${productName}']`);
     }
     public async clickProductLink(homeInputDao: HomeInputDao): Promise<ProductPage> {
-        await this.getProductLink(homeInputDao.getProductName()).click();      
+        await step(`User select the product ${homeInputDao.getProductName()}`, async (step) => {
+            await this.getProductLink(homeInputDao.getProductName()).click();
+        });    
         return new ProductPage();
     }
 

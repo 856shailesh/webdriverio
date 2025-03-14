@@ -3,6 +3,7 @@ import { ProductInputDao } from '../daoLayer/inputDao/productInputDao';
 import CartPage from './cart.page';
 import {Page} from './page'
 import {ChainablePromiseElement} from 'webdriverio';
+import { step } from "@wdio/allure-reporter";
 
 export default class ProductPage extends Page {
 
@@ -22,14 +23,9 @@ export default class ProductPage extends Page {
         return $("//button/span[text()='ADD TO CART']");
     }
 
-    //currently
     private getAddToCartPopUpButton(): ChainablePromiseElement {
         return $("a.add-cart-popup-button");
     }
-
-    //What I am suggesting
-    //private getAddToCartPopUpButton1 = $("a.add-cart-popup-button");
-
 
     public async waitForSizeTobeSelected(productSize: string) {
         await browser.waitUntil(async ()=> {
@@ -53,8 +49,9 @@ export default class ProductPage extends Page {
           })
     }
 
-    public async fillProductDetails(productInputDao: ProductInputDao): Promise<CartPage> {
 
+    public async fillProductDetails(productInputDao: ProductInputDao): Promise<CartPage> {
+      await step(`User fills the product detail`, async (step) => {
         await this.getProductSize(productInputDao.getSize()).click();      
         await this.waitForSizeTobeSelected(productInputDao.getSize());  
         await this.getProductColor(productInputDao.getColor()).click();
@@ -65,7 +62,9 @@ export default class ProductPage extends Page {
 
         await this.getAddToCartButton().click();
         await this.getAddToCartPopUpButton().click();
-
+      });
         return new CartPage();
-    }    
+    }
+
+    
 }

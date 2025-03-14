@@ -33,6 +33,7 @@ export const config: WebdriverIO.Config = {
     //
     specs: [
         './test/specs/e2e.ts',
+        //'./test/specs/e2e2.ts',
         //'./test/specs/test2.e2e.ts',
     ],
     // Patterns to exclude.
@@ -65,8 +66,10 @@ export const config: WebdriverIO.Config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome',
+        browserName: 'firefox',
         //'wdio:enforceWebDriverClassic' : true
+    }, {
+        browserName: 'chrome',
     }],
 
     //
@@ -220,8 +223,10 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: async function (capabilities, specs) {
+        await browser.maximizeWindow();
+         console.log(`SK : Before started`)
+     },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name

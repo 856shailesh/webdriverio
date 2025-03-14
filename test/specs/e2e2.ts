@@ -22,8 +22,8 @@ import { CheckoutInputDao } from '../daoLayer/inputDao/checkoutInputDao';
 import { CheckoutDataLayer } from '../dataLayer/checkoutDataLayer';
 
 
-describe("e2e flow", () => {
-    it("TC1", async () => {
+describe("e2e2 flow", () => {
+    it("TC2", async () => {
         //Page Objects
         const loginPage = new login();
         let cartPage: CartPage;
